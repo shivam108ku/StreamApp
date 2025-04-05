@@ -1,5 +1,6 @@
 import React from 'react'
 import Navbar from './Navbar'
+import HeroPart from './HeroPart'
 
 
 const Home = () => {
@@ -14,7 +15,9 @@ const Home = () => {
            <div className='h-[7%] w-[95%] mx-auto'>
             <Navbar/>
             </div>
-           <div className='h-[31%] w-[95%] mx-auto bg-green-500'>Hero</div>
+           <div className='h-[31%] w-[95%] mx-auto '>
+            <HeroPart/>
+           </div>
            <div className='h-[13%] w-[95%] mx-auto bg-red-500'>Nav</div>
            <div className='h-[43%] w-[95%] mx-auto bg-green-500'>Last</div >
 

@@ -9,7 +9,11 @@ const Navbar = () => {
   return (
     <div className='flex justify-between items-center'>
 
-        <div className='w-[30%]'>LOGO</div>
+            <div className="w-[30%] text-3xl font-black
+             bg-gradient-to-r from-purple-300 via-white to-purple-400 
+             bg-clip-text text-transparent animate-pulse">
+              MyPrime
+           </div>
 
         {/* Categopries */}
          <div className=' flex justify-center w-[40%] items-center'>
