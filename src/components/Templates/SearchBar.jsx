@@ -1,10 +1,25 @@
-import React, { useState } from 'react'
+import React, { use, useEffect, useState } from 'react'
 import {Link} from 'react-router-dom'
+import axios from '../../utils/axios'
 
 const SearchBar = () => {
 
     const [query , setQuery] = useState("");
-    console.log(query)
+    const [search , setSearch] = useState([])
+    
+    const GetSearches = async()=>{
+      try{
+        const data = await axios.get(`/search/multi?query=${query}`)
+        console.log(data);
+        setSearch(data.data.results || [] );
+      } catch (error){
+        console.log(error)
+      }
+    }
+
+    useEffect(()=>{
+      GetSearches();
+    },[query])
 
   return (
     <div className='ml-16 relative flex justify-center gap-2 items-center'>
@@ -25,25 +40,31 @@ const SearchBar = () => {
          backdrop-blur-md bg-black/10 border rounded-xl border-white/20 shadow-4xl
         transparent top-[100%] '>
 
-             
-
-            {/* <Link className='inline-block
-              w-[95%] mx-auto p-5   transition-colors
-              duration-300 ease-in-out hover:text-amber-50'>
-              <img src="" alt="" />
-              <span>Hello EveryOne</span>
-              </Link> */}
-        
+          {search.map((s,i)=>(
+            <Link key={i} className='inline-block
+            w-[95%] mx-auto p-5 text-white font-semibold transition-colors
+            duration-300 ease-in-out hover:text-purple-200'>
               
+              <img className="h-30 w-60 object-cover 
+              rounded-2xl 
+              shadow-[0_1px_25px_rgba(255,255,255,0.15)]
+               hover:shadow-[0_15px_35px_rgba(25,55,55,0.25)] 
+               transition-all duration-300"
+            src={`https://image.tmdb.org/t/p/w500${s.backdrop_path}`}
+            alt="" />
+              
+               
+              <span>
+              {s.name ||
+              s.title ||
+              s.original_name ||
+              s.original_title           
+              }</span>
+               
            
-           
-
             
-
-             
-
-            
-            
+            </Link>
+          ))}
             
         </div>
 
