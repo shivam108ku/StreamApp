@@ -1,10 +1,31 @@
-import React from 'react'
+import React, { useEffect,useState } from 'react'
 import Navbar from './Navbar'
 import HeroPart from './HeroPart'
+import axios from '../utils/axios'
 
 
 const Home = () => {
-  return (
+
+  document.title = "MyPrime || Homepage"
+
+  const [wallpaper , setWallpaper] = useState(null);
+   
+  const GetWallpaper = async ()=>{
+    try {
+      const {data} = await axios.get(`/trending/all/day`);
+       
+      let randomData = data.results[(Math.random()*data.results.length).toFixed()];
+      setWallpaper(randomData);
+    }
+    catch(error){
+      console.log(error);
+    }
+   };
+   useEffect(()=>{
+    !wallpaper && GetWallpaper()
+   },[])
+
+  return wallpaper ?  (
     <div className="flex items-center justify-center 
       w-screen h-screen bg-gradient-to-l
       from-purple-800 via-purple-500 to-purple-800 ">
@@ -16,7 +37,7 @@ const Home = () => {
             <Navbar/>
             </div>
            <div className='h-[31%] w-[95%] mx-auto '>
-            <HeroPart/>
+            <HeroPart getwall={wallpaper} />
            </div>
            <div className='h-[13%] w-[95%] mx-auto bg-red-500'>Nav</div>
            <div className='h-[43%] w-[95%] mx-auto bg-green-500'>Last</div >
@@ -24,7 +45,7 @@ const Home = () => {
       </div>
       
     </div>
-  )
+  ):<h1>LOADING</h1>
 }
 
 export default Home

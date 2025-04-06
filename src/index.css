@@ -14,3 +14,13 @@
 ::-webkit-scrollbar-thumb:hover{
     background-color: blueviolet;
 }
+
+@keyframes shine {
+    0% {
+      background-position: 100%;
+    }
+    100% {
+      background-position: -100%;
+    }
+  }
+  

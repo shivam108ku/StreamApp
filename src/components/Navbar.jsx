@@ -9,9 +9,23 @@ const Navbar = () => {
   return (
     <div className='flex justify-between items-center'>
 
-            <div className="w-[30%] text-3xl font-black
-             bg-gradient-to-r from-purple-300 via-white to-purple-400 
-             bg-clip-text text-transparent animate-pulse">
+            <div
+            style={{
+               color: "#b5b5b5a4",
+               background: `linear-gradient(
+                 120deg,
+                 rgba(255, 255, 255, 0) 10%,
+                 rgba(255, 255, 255, 1) 50%,
+                 rgba(255, 255, 255, 0) 70%
+               )`,
+               backgroundSize: "200% 100%",
+               WebkitBackgroundClip: "text",
+               backgroundClip: "text",
+               display: "inline-block",
+               WebkitTextFillColor: "transparent",
+               animation: "shine 5s linear infinite",
+             }} className="w-[30%] text-4xl font-black
+             ">
               MyPrime
            </div>
 

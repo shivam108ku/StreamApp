@@ -10,7 +10,6 @@ const SearchBar = () => {
     const GetSearches = async()=>{
       try{
         const data = await axios.get(`/search/multi?query=${query}`)
-        console.log(data);
         setSearch(data.data.results || [] );
       } catch (error){
         console.log(error)
@@ -48,9 +47,9 @@ const SearchBar = () => {
               <img className="h-30 w-60 object-cover 
               rounded-2xl 
               shadow-[0_1px_25px_rgba(255,255,255,0.15)]
-               hover:shadow-[0_15px_35px_rgba(25,55,55,0.25)] 
+               hover:shadow-[0_15px_35px_rgba(255,55,55,0.25)] 
                transition-all duration-300"
-            src={`https://image.tmdb.org/t/p/w500${s.backdrop_path}`}
+            src={`https://image.tmdb.org/t/p/w500${s.backdrop_path || s.profile_path}`}
             alt="" />
               
                
