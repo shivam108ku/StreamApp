@@ -36,11 +36,11 @@ const Home = () => {
            <div className='h-[7%] w-[95%] mx-auto'>
             <Navbar/>
             </div>
-           <div className='h-[31%] w-[95%] mx-auto '>
+           <div className='h-[42%] w-[95%] mx-auto '>
             <HeroPart getwall={wallpaper} />
            </div>
-           <div className='h-[13%] w-[95%] mx-auto bg-red-500'>Nav</div>
-           <div className='h-[43%] w-[95%] mx-auto bg-green-500'>Last</div >
+            
+           <div className='h-[45%] w-[95%] mx-auto bg-green-500'>Last</div >
 
       </div>
       

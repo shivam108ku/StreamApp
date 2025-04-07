@@ -31,10 +31,9 @@ const Navbar = () => {
 
         {/* Categopries */}
          <div className=' flex justify-center w-[40%] items-center'>
-            <nav className='flex h-[2.67rem] w-[70%] bg-black rounded-4xl gap-6 justify-center items-center
+            <nav className='flex h-[2.67rem] w-[50%] bg-black rounded-4xl gap-6 justify-center items-center
             text-[0.75rem] font-semibold
              text-amber-50'>
-                 <PopularMenu/>
                   <Trending/> 
                   <Movies/>
                   <TvShow/>
