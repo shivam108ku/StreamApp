@@ -1,5 +1,5 @@
 import React from 'react'
-import PopularMenu from './Templates/PopularMenu'
+import ThreeBackground from './ThreeBackground';
 import Trending from './Templates/Trending'
 import Movies from './Templates/Movies'
 import TvShow from './Templates/TvShow'
@@ -7,9 +7,10 @@ import SearchBar from './Templates/SearchBar'
 
 const Navbar = () => {
   return (
+    // Logo
     <div className='flex justify-between items-center'>
-
-            <div
+      <ThreeBackground/>
+            <div 
             style={{
                color: "#b5b5b5a4",
                background: `linear-gradient(
@@ -24,7 +25,7 @@ const Navbar = () => {
                display: "inline-block",
                WebkitTextFillColor: "transparent",
                animation: "shine 5s linear infinite",
-             }} className="w-[30%] text-4xl font-black
+             }} className="w-[30%] text-4xl font-black select-none
              ">
               MyPrime
            </div>
